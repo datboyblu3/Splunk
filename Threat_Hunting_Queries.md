@@ -46,10 +46,9 @@ Reference this [blog](https://www.socinvestigation.com/threat-hunting-using-wind
 
 ```Splunk
 index IN (nameofIndex) EventID=4625 OR EventCode=4625
-| eval name_of_field=case(fieldname=value, "TEXT")
-| eval name_of_field=case(fieldname=value, "TEXT")
-| eval name_of_field=case(fieldname=value, "TEXT")
-| eval name_of_field=case(fieldname=value, "TEXT")
-| eval name_of_field=case(fieldname=value, "TEXT")
+| eval description=case(Failure_Reason=0XC000005E, "no logon servers available to service the logon request")
+| eval description=case(Failure_Reason=0xC0000064, "User logon with misspelled or bad password” for critical accounts or service accounts")
+| eval description=case(Failure_Reason=0XC000006D, This is either due to a bad username or authentication information” for critical accounts or service accounts")
+| eval description=case(Failure_Reason=0xC000006F, "User logon outside authorized hours")
 | stats count another_field, name_of_field
 ```

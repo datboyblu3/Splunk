@@ -42,6 +42,7 @@ index=botsv3 sourcetype=wineventlog action=fail* Direction=Inbound
 
 
 ## Failed Login Codes and Event IDs to Hunt
+Reference this [blog](https://www.socinvestigation.com/threat-hunting-using-windows-security-log/) 
 
 ```Splunk
 index IN (nameofIndex) EventID=4625 OR EventCode=4625

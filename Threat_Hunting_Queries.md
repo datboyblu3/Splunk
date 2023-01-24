@@ -41,10 +41,14 @@ index=botsv3 sourcetype=wineventlog action=fail* Direction=Inbound
 <img width="1278" alt="inbound_connections" src="https://user-images.githubusercontent.com/95729902/160302072-5c41400f-303f-4904-bc2a-8b05d4052db3.png">
 
 
-# Windows Event IDs to Hunt
+## Failed Login Codes and Event IDs to Hunt
 
 ```Splunk
-index IN (nameofIndex)
-| eval name_of_index=case(fieldname=value, "TEXT")
+index IN (nameofIndex) EventID=4625 OR EventCode=4625
+| eval name_of_field=case(fieldname=value, "TEXT")
+| eval name_of_field=case(fieldname=value, "TEXT")
+| eval name_of_field=case(fieldname=value, "TEXT")
+| eval name_of_field=case(fieldname=value, "TEXT")
+| eval name_of_field=case(fieldname=value, "TEXT")
 | stats count another_field, name_of_field
 ```

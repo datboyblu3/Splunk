@@ -50,5 +50,10 @@ index IN (nameofIndex) EventID=4625 OR EventCode=4625
 | eval description=case(Failure_Reason=0xC0000064, "User logon with misspelled or bad password” for critical accounts or service accounts")
 | eval description=case(Failure_Reason=0XC000006D, This is either due to a bad username or authentication information” for critical accounts or service accounts")
 | eval description=case(Failure_Reason=0xC000006F, "User logon outside authorized hours")
+| eval description=case(Failure_Reason=0xC0000070, "User logon from unauthorized workstation")
+| eval description=case(Failure_Reason=0XC0000192, "An attempt was made to logon, but the Netlogon service was not started")
+| eval description=case(Failure_Reason=0xC0000193, "User logon with expired account")
+| eval description=case(Failure_Reason=0XC0000413, "The machine you are logging onto is protected by an authentication firewall. The specified account is not allowed to authenticate to the machine")
 | stats count another_field, name_of_field
 ```
+
